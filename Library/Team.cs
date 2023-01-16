@@ -41,12 +41,13 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
-            if(MAX_RISERVA_PLAYERS>=players.Count)
+            string role = Convert.ToString(player.Role);
+            if(role == "Rosa" && MAX_RISERVA_PLAYERS >= players.Count)
             {
                 players.Add(player);
                 return true;
             }
-            else if( players.Count <= MAX_RISERVA_PLAYERS + MAX_ROSA_PLAYERS)
+            if(role == "Riserva" && players.Count <= MAX_RISERVA_PLAYERS + MAX_ROSA_PLAYERS)
             {
                 players.Add(player);
                 return true;
