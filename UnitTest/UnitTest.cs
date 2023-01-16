@@ -12,13 +12,17 @@ namespace UnitTest
         [Test]
         public void AddPlayers()
         {
-            // TODO U.1
+            Team team = new Team("Squadra x");
+            bool boolean = team.AddPlayer(new Player("Cognome 1", "Nome 1", Player.ERole.Rosa));
+            Assert.IsTrue(boolean, "The bool is false");
         }
 
         [Test]
         public void AddCaptain()
         {
-            // TODO U.2
+            Team team = new Team("Squadra x");
+            bool boolean =  team.AddCaptain(new Player("Cognome 1", "Nome 1", Player.ERole.Rosa));
+            Assert.IsTrue(boolean, "The bool is false");
         }
     }
 }

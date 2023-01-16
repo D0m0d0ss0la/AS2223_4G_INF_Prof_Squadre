@@ -22,12 +22,11 @@ namespace Library
 
         public string Description()
         {
-            // TODO P.2
+            return string.Concat(name + " " + surname + " " + role);
         }
 
         public ERole Role {
             get { return role; }
         }
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Library
         /// <summary>
         /// List of players of the Team
         /// </summary>
-        List<Player> players;
+        List<Player> players = new List<Player>();
 
         /// <summary>
         /// Team captain
@@ -42,7 +43,7 @@ namespace Library
         public bool AddPlayer(Player player)
         {
             string role = Convert.ToString(player.Role);
-            if(role == "Rosa" && MAX_RISERVA_PLAYERS >= players.Count)
+            if(role == "Rosa" && MAX_ROSA_PLAYERS >= players.Count)
             {
                 players.Add(player);
                 return true;
@@ -66,7 +67,8 @@ namespace Library
         /// <returns>True if captain has been setted</returns>
         public bool AddCaptain(Player captain)
         {
-            players.Add(captain);
+            this.captain = captain;
+            players.Add(this.captain);
             return true;
         }
 
@@ -74,13 +76,15 @@ namespace Library
         /// Get a list of players of the team
         /// </summary>
         /// <returns></returns>
-        public void GetPlayers()
+        public string GetPlayers()
         {
+            string playerListPlus = "";
             foreach (Player player in players)
             {
-                Console.Write($"{player} ");
+                    Console.WriteLine(player.Description());
             }
-        }
+            return "";
+                }
 
         public string Name { get { return name; } }
 
