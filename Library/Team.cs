@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,7 +41,19 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
-            // TODO T.2
+            if(MAX_RISERVA_PLAYERS>=players.Count)
+            {
+                players.Add(player);
+                return true;
+            }
+            else if( players.Count <= MAX_RISERVA_PLAYERS + MAX_ROSA_PLAYERS)
+            {
+                players.Add(player);
+                return true;
+            }
+            return false;
+            
+            
         }
 
         /// <summary>
@@ -52,16 +65,20 @@ namespace Library
         /// <returns>True if captain has been setted</returns>
         public bool AddCaptain(Player captain)
         {
-            // TODO T.3
+            players.Add(captain);
+            return true;
         }
 
         /// <summary>
         /// Get a list of players of the team
         /// </summary>
         /// <returns></returns>
-        public string GetPlayers()
+        public void GetPlayers()
         {
-            // TODO T.4
+            foreach (Player player in players)
+            {
+                Console.Write($"{player} ");
+            }
         }
 
         public string Name { get { return name; } }

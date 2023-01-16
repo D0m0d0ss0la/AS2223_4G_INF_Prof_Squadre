@@ -25,8 +25,8 @@ namespace Library
             // TODO P.2
         }
 
-        public ERole Role { 
-            // TODO P.3
+        public ERole Role {
+            get { return role; }
         }
 
     }
